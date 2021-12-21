@@ -8,17 +8,27 @@ function Header({ user, onLogout }) {
   }
 
   return (
-    <header>
-      <h1>
-        <Link to="/">Lorem Blogum</Link>
-      </h1>
+    <header style={{width: '100%', border: '1px solid white'}}>
       {user ? (
         <div>
-          <p>Welcome, {user.username}!</p>
-          <button onClick={handleLogout}>Logout</button>
+          <div style={{ border: '1px solid white'}}>
+      <h1>
+        <Link to="/">Lorem Blogum</Link>
+        <button style={{marginLeft: '10px' }} onClick={handleLogout}>Logout</button>
+      </h1>
+      </div>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <p>Welcome {user.username}!</p>
+          {/* <button onClick={handleLogout}>Logout</button> */}
+        </div>
         </div>
       ) : (
+        <div>
+        <h1>
+        <Link to="/">Lorem Blogum</Link>
+      </h1>
         <Link to="/login">Click Here to Login</Link>
+        </div>
       )}
     </header>
   );

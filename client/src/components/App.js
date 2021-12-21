@@ -9,13 +9,16 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/me").then((response) => {
-      if (response.ok) {
-        response.json().then((user) => setUser(user));
-      }
-    });
+    fetch("/me")
+    .then((r) => r.json())
+    .then(setUser);
+    //   if (response.ok) {
+    //     response.json().then((user) => setUser(user));
+    //   }
+    // });
   }, []);
 
+  
   function handleLogin(user) {
     setUser(user);
   }
